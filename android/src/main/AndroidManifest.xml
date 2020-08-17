@@ -1,0 +1,35 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+  package="oddbit.rectangle_detector.rectangle_detector">
+
+
+
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        android:screenOrientation="portrait">
+      <activity
+          android:name=".scanner.scan.ScanActivity"
+          android:label="@string/scan"
+          android:launchMode="singleTask"
+          android:screenOrientation="portrait"
+          android:theme="@style/Theme.AppCompat.NoActionBar">
+        <intent-filter>
+          <action android:name="android.intent.action.MAIN" />
+          <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+      </activity>
+      <activity
+          android:name=".scanner.scan.crop.CropActivity"
+          android:label="@string/crop"
+          android:launchMode="singleTask"
+          android:screenOrientation="portrait"
+          android:theme="@style/Theme.AppCompat.NoActionBar" />
+    </application>
+
+
+
+</manifest>
