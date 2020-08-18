@@ -11,7 +11,20 @@ public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin, VNDocumentCa
   }
 
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
-    result("iOS " + UIDevice.current.systemVersion)
+    switch call.method {
+        case "getPlatformVersion":
+          result("iOS " + UIDevice.current.systemVersion)
+          break
+        case "showDocumentCapture":
+          self.result = result
+          
+          let documentCamera: VNDocumentCameraViewController = VNDocumentCameraViewController()
+          documentCamera.delegate = self
+          UIWindow.key?.rootViewController?.present(documentCamera, animated: true, completion: nil)
+          break
+        default:
+          result(FlutterMethodNotImplemented)
+    }
   }
 
   public func documentCameraViewControllerDidCancel(_ controller: VNDocumentCameraViewController) {
