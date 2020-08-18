@@ -1,5 +1,6 @@
 import Flutter
 import UIKit
+import VisionKit
 
 public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin {
   public static func register(with registrar: FlutterPluginRegistrar) {
