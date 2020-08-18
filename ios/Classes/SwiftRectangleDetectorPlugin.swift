@@ -3,9 +3,9 @@ import UIKit
 import VisionKit
 
 public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin, VNDocumentCameraViewControllerDelegate {
-  var result: FlutterResult? = nil
+  static let channelName = "rectangle_detector"
   public static func register(with registrar: FlutterPluginRegistrar) {
-    let channel = FlutterMethodChannel(name: "rectangle_detector", binaryMessenger: registrar.messenger())
+    let channel = FlutterMethodChannel(name: channelName, binaryMessenger: registrar.messenger())
     let instance = SwiftRectangleDetectorPlugin()
     registrar.addMethodCallDelegate(instance, channel: channel)
   }
@@ -15,9 +15,7 @@ public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin, VNDocumentCa
         case "getPlatformVersion":
           result("iOS " + UIDevice.current.systemVersion)
           break
-        case "showDocumentCapture":
-          self.result = result
-          
+        case "startDetector":
           let documentCamera: VNDocumentCameraViewController = VNDocumentCameraViewController()
           documentCamera.delegate = self
           UIWindow.key?.rootViewController?.present(documentCamera, animated: true, completion: nil)
@@ -37,15 +35,19 @@ public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin, VNDocumentCa
   }
 
   public func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
+      //Dismiss camera scanner first after taking image
       UIWindow.key?.rootViewController?.dismiss(animated: true, completion: nil)
+      
+      // get last image taken, vision kit can take multiple image at once
       let pageCount = scan.pageCount
       let image = scan.imageOfPage(at: pageCount - 1)
       let filename = "\(Date().toMillis()).png"
       let path = saveImageToDocumentsDirectory(image: image, withName: filename)
-      if let flutterResult = self.result{
-          flutterResult(path)
-      }
-      self.result = nil
+        
+      // passing path image from native screen to flutter screen
+      let rootViewController : FlutterViewController = UIWindow.key?.rootViewController as! FlutterViewController
+      let methodChannel = FlutterMethodChannel(name: SwiftRectangleDetectorPlugin.channelName, binaryMessenger: rootViewController.binaryMessenger)
+      methodChannel.invokeMethod("onCroppedPictureCreated", arguments: path)
   }
   func saveImageToDocumentsDirectory(image: UIImage, withName: String) -> String? {
       if let data = image.pngData() {
