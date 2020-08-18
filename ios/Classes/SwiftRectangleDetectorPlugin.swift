@@ -25,6 +25,14 @@ public class SwiftRectangleDetectorPlugin: NSObject, FlutterPlugin, VNDocumentCa
 
   public func documentCameraViewController(_ controller: VNDocumentCameraViewController, didFinishWith scan: VNDocumentCameraScan) {
       UIWindow.key?.rootViewController?.dismiss(animated: true, completion: nil)
+      let pageCount = scan.pageCount
+      let image = scan.imageOfPage(at: pageCount - 1)
+      let filename = "\(Date().toMillis()).png"
+      let path = saveImageToDocumentsDirectory(image: image, withName: filename)
+      if let flutterResult = self.result{
+          flutterResult(path)
+      }
+      self.result = nil
   }
   func saveImageToDocumentsDirectory(image: UIImage, withName: String) -> String? {
       if let data = image.pngData() {
