@@ -35,7 +35,7 @@ flutter:
   plugin:
     platforms:
       android:
-        package: oddbit.rectangle_detector.rectangle_detector
+        package: id.oddbit.rectangle_detector.rectangle_detector
         pluginClass: RectangleDetectorPlugin
       ios:
         pluginClass: RectangleDetectorPlugin

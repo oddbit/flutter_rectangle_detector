@@ -39,14 +39,14 @@
             </intent-filter>
         </activity>
         <activity
-          android:name="oddbit.rectangle_detector.scanner.scan.ScanActivity"
+          android:name="id.oddbit.rectangle_detector.scanner.scan.ScanActivity"
           android:label="@string/scan"
           android:launchMode="singleTask"
           android:screenOrientation="portrait"
           android:theme="@style/Theme.AppCompat.NoActionBar">
         </activity>
         <activity
-          android:name="oddbit.rectangle_detector.scanner.crop.CropActivity"
+          android:name="id.oddbit.rectangle_detector.scanner.crop.CropActivity"
           android:label="@string/crop"
           android:launchMode="singleTask"
           android:screenOrientation="portrait"

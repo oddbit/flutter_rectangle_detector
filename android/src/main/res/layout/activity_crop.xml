@@ -16,7 +16,7 @@
         android:adjustViewBounds="true"
         android:scaleType="fitXY" />
 
-    <oddbit.rectangle_detector.scanner.view.PaperRectangle
+    <id.oddbit.rectangle_detector.scanner.view.PaperRectangle
         android:id="@+id/paper_rect"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
