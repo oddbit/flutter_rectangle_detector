@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.rectangle_detector
+package id.oddbit.rectangle_detector.rectangle_detector
 
 import android.app.Activity
 import android.content.Intent
@@ -13,7 +13,7 @@ import io.flutter.plugin.common.MethodChannel
 import io.flutter.plugin.common.MethodChannel.MethodCallHandler
 import io.flutter.plugin.common.MethodChannel.Result
 import io.flutter.plugin.common.PluginRegistry.Registrar
-import oddbit.rectangle_detector.scanner.scan.ScanActivity
+import id.oddbit.rectangle_detector.scanner.scan.ScanActivity
 
 /** RectangleDetectorPlugin */
 public class RectangleDetectorPlugin: FlutterPlugin, MethodCallHandler, ActivityAware {

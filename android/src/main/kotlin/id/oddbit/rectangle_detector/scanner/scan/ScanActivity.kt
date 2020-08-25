@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.scanner.scan
+package id.oddbit.rectangle_detector.scanner.scan
 
 import android.app.Activity
 import android.content.Intent
@@ -14,12 +14,12 @@ import android.view.SurfaceHolder
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import id.oddbit.rectangle_detector.scanner.SourceManager
+import id.oddbit.rectangle_detector.scanner.base.BaseActivity
+import id.oddbit.rectangle_detector.scanner.processor.Corners
+import id.oddbit.rectangle_detector.scanner.processor.processPicture
+import id.oddbit.rectangle_detector.scanner.crop.CropActivity
 import oddbit.rectangle_detector.rectangle_detector.R
-import oddbit.rectangle_detector.scanner.SourceManager
-import oddbit.rectangle_detector.scanner.base.BaseActivity
-import oddbit.rectangle_detector.scanner.crop.CropActivity
-import oddbit.rectangle_detector.scanner.processor.Corners
-import oddbit.rectangle_detector.scanner.processor.processPicture
 import io.reactivex.Observable
 import io.reactivex.Scheduler
 import io.reactivex.android.schedulers.AndroidSchedulers

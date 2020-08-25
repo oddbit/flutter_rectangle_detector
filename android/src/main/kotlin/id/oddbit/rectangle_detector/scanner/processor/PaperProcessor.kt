@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.scanner.processor
+package id.oddbit.rectangle_detector.scanner.processor
 
 import android.graphics.Bitmap
 import android.util.Log

@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.scanner.view
+package id.oddbit.rectangle_detector.scanner.view
 
 import android.app.Activity
 import android.content.Context
@@ -8,9 +8,9 @@ import android.util.DisplayMetrics
 import android.util.Log
 import android.view.MotionEvent
 import android.view.View
-import oddbit.rectangle_detector.scanner.SourceManager
-import oddbit.rectangle_detector.scanner.processor.Corners
-import oddbit.rectangle_detector.scanner.processor.TAG
+import id.oddbit.rectangle_detector.scanner.SourceManager
+import id.oddbit.rectangle_detector.scanner.processor.Corners
+import id.oddbit.rectangle_detector.scanner.processor.TAG
 import org.opencv.core.Point
 import org.opencv.core.Size
 

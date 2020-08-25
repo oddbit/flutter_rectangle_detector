@@ -1,10 +1,10 @@
-package oddbit.rectangle_detector.scanner.crop
+package id.oddbit.rectangle_detector.scanner.crop
 
 import android.app.Activity
 import android.content.Intent
 import android.widget.ImageView
-import oddbit.rectangle_detector.scanner.base.BaseActivity
-import oddbit.rectangle_detector.scanner.view.PaperRectangle
+import id.oddbit.rectangle_detector.scanner.base.BaseActivity
+import id.oddbit.rectangle_detector.scanner.view.PaperRectangle
 import kotlinx.android.synthetic.main.activity_crop.*
 import oddbit.rectangle_detector.rectangle_detector.R
 

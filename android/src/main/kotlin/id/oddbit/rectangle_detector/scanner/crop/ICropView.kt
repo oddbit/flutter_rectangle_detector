@@ -1,7 +1,7 @@
-package oddbit.rectangle_detector.scanner.crop
+package id.oddbit.rectangle_detector.scanner.crop
 
 import android.widget.ImageView
-import oddbit.rectangle_detector.scanner.view.PaperRectangle
+import id.oddbit.rectangle_detector.scanner.view.PaperRectangle
 
 class ICropView {
     interface Proxy {

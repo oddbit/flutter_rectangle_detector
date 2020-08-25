@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.scanner.base
+package id.oddbit.rectangle_detector.scanner.base
 
 import android.os.Bundle
 import android.widget.Toast

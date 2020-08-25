@@ -1,6 +1,6 @@
-package oddbit.rectangle_detector.scanner
+package id.oddbit.rectangle_detector.scanner
 
-import oddbit.rectangle_detector.scanner.processor.Corners
+import id.oddbit.rectangle_detector.scanner.processor.Corners
 import org.opencv.core.Mat
 import org.opencv.core.Point
 import org.opencv.core.Size

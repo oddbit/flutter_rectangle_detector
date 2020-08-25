@@ -1,4 +1,4 @@
-package oddbit.rectangle_detector.scanner.crop
+package id.oddbit.rectangle_detector.scanner.crop
 
 import android.Manifest
 import android.content.Context
@@ -9,11 +9,11 @@ import android.os.SystemClock
 import android.util.Log
 import android.view.View
 import android.widget.Toast
-import oddbit.rectangle_detector.scanner.SourceManager
-import oddbit.rectangle_detector.scanner.processor.Corners
-import oddbit.rectangle_detector.scanner.processor.TAG
-import oddbit.rectangle_detector.scanner.processor.cropPicture
-import oddbit.rectangle_detector.scanner.processor.enhancePicture
+import id.oddbit.rectangle_detector.scanner.SourceManager
+import id.oddbit.rectangle_detector.scanner.processor.Corners
+import id.oddbit.rectangle_detector.scanner.processor.TAG
+import id.oddbit.rectangle_detector.scanner.processor.cropPicture
+import id.oddbit.rectangle_detector.scanner.processor.enhancePicture
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
@@ -24,6 +24,7 @@ import java.io.FileOutputStream
 import android.provider.MediaStore
 import android.content.ContentValues
 import androidx.core.app.ActivityCompat
+import id.oddbit.rectangle_detector.scanner.crop.ICropView
 
 
 const val IMAGES_DIR = "smart_scanner"
