@@ -1,6 +1,0 @@
-rootProject.name = 'rectangle_detector'
-//include ':rectangle_detector'
-//include ':openCVLibrary320'
-//
-//project(':rectangle_detector').projectDir = file('android')
-//project(':openCVLibrary320').projectDir = file('android/openCVLibrary320')

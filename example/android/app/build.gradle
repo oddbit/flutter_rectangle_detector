@@ -52,6 +52,15 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    packagingOptions {
+        pickFirst 'lib/armeabi/libopencv_java3.so'
+        pickFirst 'lib/mips/libopencv_java3.so'
+        pickFirst 'lib/arm64-v8a/libopencv_java3.so'
+        pickFirst 'lib/x86_64/libopencv_java3.so'
+        pickFirst 'lib/mips64/libopencv_java3.so'
+        pickFirst 'lib/armeabi-v7a/libopencv_java3.so'
+        pickFirst 'lib/x86/libopencv_java3.so'
+    }
 }
 
 flutter {
