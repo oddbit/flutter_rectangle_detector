@@ -2,6 +2,7 @@ package id.oddbit.rectangle_detector.scanner.crop
 
 import android.app.Activity
 import android.content.Intent
+import android.view.View
 import android.widget.ImageView
 import id.oddbit.rectangle_detector.scanner.base.BaseActivity
 import id.oddbit.rectangle_detector.scanner.view.PaperRectangle
@@ -37,5 +38,10 @@ class CropActivity : BaseActivity(), ICropView.Proxy {
         resultIntent.putExtra("CroppedPath", path)
         setResult(Activity.RESULT_OK, resultIntent)
         finish()
+    }
+
+    override fun adjutMenuButton() {
+        lvCrop.visibility = View.GONE
+        lvSave.visibility = View.VISIBLE
     }
 }
