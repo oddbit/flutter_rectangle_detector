@@ -4,6 +4,7 @@ import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.graphics.Point
 import android.graphics.Rect
 import android.graphics.YuvImage
 import android.hardware.Camera
@@ -121,18 +122,30 @@ class ScanActivity : BaseActivity(), SurfaceHolder.Callback, Camera.PictureCallb
             return
         }
 
-        // supported preview sizes
-        val supportedPreviewSizes = mCamera?.parameters?.supportedPreviewSizes
-
         val param = mCamera?.parameters
         val size = firstSupportedPreviewSize()
+        param?.setPreviewSize(size?.width ?: 1920, size?.height ?: 1080)
+
+        val point = Point()
+
+        val displayWidth = minOf(point.x, point.y)
+        val displayHeight = maxOf(point.x, point.y)
+        val displayRatio = displayWidth.div(displayHeight.toFloat())
+        val previewRatio = size?.height?.toFloat()?.div(size.width.toFloat()) ?: displayRatio
+
+
+        // supported preview sizes
+        val supportedPreviewSizes = mCamera?.parameters?.supportedPreviewSizes
 
         val width = mCamera?.parameters?.previewSize?.width ?: 0
         val height = mCamera?.parameters?.previewSize?.height ?: 0
 
         val surfaceParams = this.surface.layoutParams
         surfaceParams.width = width
-        surfaceParams.height = height
+        if (displayRatio > previewRatio) {
+            surfaceParams.height = (displayHeight / displayRatio * previewRatio).toInt()
+
+        }
         surface.layoutParams = surfaceParams
         paper_rect.layoutParams = surfaceParams
 
