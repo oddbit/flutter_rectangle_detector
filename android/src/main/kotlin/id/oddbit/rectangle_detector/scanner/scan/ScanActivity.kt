@@ -127,21 +127,15 @@ class ScanActivity : BaseActivity(), SurfaceHolder.Callback, Camera.PictureCallb
         param?.setPreviewSize(size?.width ?: 1920, size?.height ?: 1080)
 
         val point = Point()
-
         val displayWidth = minOf(point.x, point.y)
         val displayHeight = maxOf(point.x, point.y)
         val displayRatio = displayWidth.div(displayHeight.toFloat())
         val previewRatio = size?.height?.toFloat()?.div(size.width.toFloat()) ?: displayRatio
-
-
-        // supported preview sizes
-        val supportedPreviewSizes = mCamera?.parameters?.supportedPreviewSizes
-
         val width = mCamera?.parameters?.previewSize?.width ?: 0
-        val height = mCamera?.parameters?.previewSize?.height ?: 0
 
         val surfaceParams = this.surface.layoutParams
         surfaceParams.width = width
+        ///default height is match_parent, recalculate when orientation is horizontal or screen display is tablet
         if (displayRatio > previewRatio) {
             surfaceParams.height = (displayHeight / displayRatio * previewRatio).toInt()
 
