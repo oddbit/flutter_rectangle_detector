@@ -118,7 +118,6 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                 outStream.flush()
                 outStream.close()
                 addImageToGallery(file.absolutePath, this.context)
-                Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                 iCropView.setCroppedResult(file.absolutePath)
             } else {
                 val cropPic = croppedBitmap
@@ -129,7 +128,6 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     outStream.flush()
                     outStream.close()
                     addImageToGallery(file.absolutePath, this.context)
-                    Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                     iCropView.setCroppedResult(file.absolutePath)
                 }
             }
