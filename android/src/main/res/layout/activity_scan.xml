@@ -4,16 +4,21 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <SurfaceView
-        android:id="@+id/surface"
+    <FrameLayout
+        android:id="@+id/fl_camera_preview"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:background="#000000" >
+    </FrameLayout>
 
     <id.oddbit.rectangle_detector.scanner.view.PaperRectangle
         android:id="@+id/paper_rect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
         android:background="@color/colorTransparent" />
+
 
     <RelativeLayout
         android:layout_width="match_parent"
