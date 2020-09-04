@@ -9,5 +9,6 @@ class ICropView {
         fun getPaperRect(): PaperRectangle
         fun getCroppedPaper(): ImageView
         fun setCroppedResult(path: String)
+        fun adjutMenuButton()
     }
 }

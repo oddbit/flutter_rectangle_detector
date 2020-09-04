@@ -24,7 +24,6 @@ import java.io.FileOutputStream
 import android.provider.MediaStore
 import android.content.ContentValues
 import androidx.core.app.ActivityCompat
-import id.oddbit.rectangle_detector.scanner.crop.ICropView
 
 
 const val IMAGES_DIR = "smart_scanner"
@@ -66,6 +65,7 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
             Log.i(TAG, "already cropped")
             return
         }
+        iCropView.adjutMenuButton()
 
         Observable.create<Mat> {
             it.onNext(cropPicture(picture, iCropView.getPaperRect().getCorners2Crop()))
@@ -118,7 +118,6 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                 outStream.flush()
                 outStream.close()
                 addImageToGallery(file.absolutePath, this.context)
-                Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                 iCropView.setCroppedResult(file.absolutePath)
             } else {
                 val cropPic = croppedBitmap
@@ -129,7 +128,6 @@ class CropPresenter(val context: Context, private val iCropView: ICropView.Proxy
                     outStream.flush()
                     outStream.close()
                     addImageToGallery(file.absolutePath, this.context)
-                    Toast.makeText(context, "picture saved, path: ${file.absolutePath}", Toast.LENGTH_SHORT).show()
                     iCropView.setCroppedResult(file.absolutePath)
                 }
             }
