@@ -1,25 +1,19 @@
 import 'dart:async';
-import 'dart:io';
 
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 import 'package:meta/meta.dart';
-import 'package:platform/platform.dart';
 
 class RectangleDetector {
   final MethodChannel _channel;
-  final Platform _platform;
-  
-  factory RectangleDetector() => _instance;
-  
-  @visibleForTesting
-  RectangleDetector.private(MethodChannel channel, Platform platform)
-      : _channel = channel,
-        _platform = platform;
 
-  static final RectangleDetector _instance = RectangleDetector.private(
-      const MethodChannel('rectangle_detector'),
-      const LocalPlatform());
+  factory RectangleDetector() => _instance;
+
+  @visibleForTesting
+  RectangleDetector.private(MethodChannel channel) : _channel = channel;
+
+  static final RectangleDetector _instance =
+      RectangleDetector.private(const MethodChannel('rectangle_detector'));
 
   final StreamController<String> _croppedPathStreamController =
       StreamController<String>.broadcast();
