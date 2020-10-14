@@ -9,16 +9,12 @@ environment:
 
 dependencies:
   meta: ^1.0.4
-  platform: ^2.0.0
   flutter:
     sdk: flutter
 
 dev_dependencies:
-  test: ^1.3.0
-  mockito: ^3.0.0
   flutter_test:
     sdk: flutter
-  e2e: ^0.2.1
 flutter:
   plugin:
     platforms:
